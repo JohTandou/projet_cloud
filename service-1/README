@@ -1,0 +1,13 @@
+Name of the author : Joh TANDOU
+
+This is a Car Rental Application (Back-end)
+File of the API schema : ./assets/schema_api.png
+
+STEPS TO GET STARTED
+1. Run the following command : docker build -t car-rental-app .
+3. Then run this command : docker run -p 3000:3000 -e PORT=3000 -t car-rental-app
+2. Access the Swagger API at : localhost:3000
+
+When you do a request post or a request patch, there are some requests which need a verification of the text format
+For example immatriculation Cars it is : XX-XXX-XX ([A-Z]{2}-[0-9]{3}-[A-Z]{2})
+To see all the formats of each parameters, please click on "Model" next to "example value"

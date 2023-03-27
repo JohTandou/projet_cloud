@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-pv-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-pv
+  template:
+    metadata:
+      labels:
+        app: node-pv
+    spec:
+      containers:
+        - name: node-pv-container
+          image: efrei/hellonode:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /usr/src/app/public
+              name: node-pv-storage
+      volumes:
+        - name: node-pv-storage
+          persistentVolumeClaim:
+            claimName: website-pv-claim

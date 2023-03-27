@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-rental-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: car-rental-app
+  template:
+    metadata:
+      labels:
+        app: car-rental-app
+    spec:
+      containers:
+        - image: johtandou/car-rental-app:1.0
+          imagePullPolicy: IfNotPresent
+          name: car-rental-app
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always
